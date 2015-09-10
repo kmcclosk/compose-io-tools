@@ -406,7 +406,7 @@ module.exports = function(config,logger) {
         });
     }
 
-    function connectString(deploymentName) {
+    function connectString(deploymentName,un,pw,db) {
 
         return getDeployment(deploymentName)
             .then(function(rv) {
@@ -415,9 +415,6 @@ module.exports = function(config,logger) {
 
                 var deployment = rv.body;
 
-                var un = 'trafficbridge';
-                var pw = 'Talent123!';
-                var db = 'app';
                 var conn0 = deployment.members[0];
                 var conn1 = deployment.members[1];
                 var replicaSet = deployment.databases[0].deployment_id;
